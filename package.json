@@ -1,0 +1,35 @@
+{
+  "name": "webstack",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter web --filter api dev",
+    "typecheck": "pnpm -r typecheck",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "arch": "depcruise apps packages",
+    "knip": "knip",
+    "test": "pnpm -r test",
+    "build": "pnpm --filter web build",
+    "e2e": "playwright test",
+    "size": "size-limit",
+    "check": "pnpm typecheck && pnpm fmt:check && pnpm arch && pnpm knip && pnpm test && pnpm build && pnpm size && pnpm e2e",
+    "prepare": "lefthook install"
+  },
+  "devDependencies": {
+    "@playwright/test": "catalog:",
+    "@size-limit/file": "catalog:",
+    "@types/node": "catalog:",
+    "@typescript/native": "catalog:",
+    "dependency-cruiser": "catalog:",
+    "knip": "catalog:",
+    "lefthook": "catalog:",
+    "oxfmt": "catalog:",
+    "size-limit": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

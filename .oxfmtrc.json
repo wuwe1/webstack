@@ -1,0 +1,9 @@
+{
+  "sortImports": {},
+  "sortTailwindcss": {},
+  "ignorePatterns": [
+    "apps/web/src/components/ui/**",
+    "apps/web/src/routeTree.gen.ts",
+    "pnpm-lock.yaml"
+  ]
+}
