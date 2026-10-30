@@ -8,6 +8,7 @@
       "entry": ["src/routes/**/*.tsx", "src/components/ui/*.tsx"]
     },
     "apps/api": {},
-    "packages/shared": {}
+    "packages/shared": {},
+    "packages/eslint-config": {}
   }
 }

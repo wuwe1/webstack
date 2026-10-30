@@ -1,5 +1,6 @@
-const TRAILER = /^[A-Za-z][A-Za-z-]*: /
-const CJK = /[⺀-鿿豈-﫿︰-﹏＀-｠￠-￦]/
+const TRAILER = /^[a-z][a-z-]*: /i
+const CJK =
+  /[\u2E80-\u9FFF\uF900-\uFAFF\uFE30-\uFE4F\uFF00-\uFF60\uFFE0-\uFFE6]/
 
 const bodyLines = ({ raw }) =>
   (raw ?? "")
