@@ -160,3 +160,31 @@
     }
   }
 }
+
+@layer base {
+  /* Native controls, popups and scrollbars follow the theme. */
+  :root {
+    color-scheme: light;
+    accent-color: var(--primary);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 25%, transparent);
+  }
+  input[type="number"] {
+    appearance: textfield;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+  input:-webkit-autofill {
+    -webkit-text-fill-color: var(--foreground);
+    box-shadow: 0 0 0 1000px var(--background) inset;
+    caret-color: var(--foreground);
+  }
+}

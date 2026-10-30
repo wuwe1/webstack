@@ -19,11 +19,12 @@
     "class-variance-authority": "catalog:",
     "cn": "catalog:",
     "hono": "catalog:",
-    "lucide-react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@babel/core": "catalog:",
+    "@rolldown/plugin-babel": "catalog:",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/router-plugin": "catalog:",
     "@testing-library/react": "catalog:",
@@ -31,6 +32,7 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "api": "workspace:*",
+    "babel-plugin-react-compiler": "catalog:",
     "happy-dom": "catalog:",
     "shadcn": "catalog:",
     "tailwindcss": "catalog:",
