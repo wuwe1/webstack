@@ -59,6 +59,3 @@ catalog:
   "@typescript/native": npm:typescript@~7.0.2
   vite: ^8.3.5
   vitest: ^5.0.5
-catalogs:
-  conflicts_valibot_h1_0_0:
-    valibot: ^1.0.0

@@ -98,6 +98,11 @@ export default function webstack(...overrides) {
       rules: testQuality,
     },
     {
+      // Its fixer rewrites pnpm-workspace.yaml even without --fix.
+      files: ["**/package.json"],
+      rules: { "pnpm/json-enforce-catalog": ["error", { autofix: false }] },
+    },
+    {
       files: ["pnpm-workspace.yaml"],
       rules: {
         "pnpm/yaml-enforce-settings": [
