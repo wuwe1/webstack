@@ -55,4 +55,4 @@ module.exports = {
       extensions: [".ts", ".tsx", ".js", ".mjs", ".d.ts"],
     },
   },
-};
+}

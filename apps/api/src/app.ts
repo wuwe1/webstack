@@ -1,7 +1,7 @@
-import { Hono } from "hono";
+import { Hono } from "hono"
 
-import { itemsRoute } from "./routes/items";
+import { itemsRoute } from "./routes/items"
 
-export const app = new Hono().route("/api/items", itemsRoute);
+export const app = new Hono().route("/api/items", itemsRoute)
 
-export type AppType = typeof app;
+export type AppType = typeof app

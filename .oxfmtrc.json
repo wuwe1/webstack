@@ -1,4 +1,6 @@
 {
+  "semi": false,
+  "printWidth": 80,
   "sortImports": {},
   "sortTailwindcss": {},
   "ignorePatterns": [

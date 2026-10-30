@@ -1,5 +1,9 @@
-import { createColumnHelper, tableFeatures, useTable } from "@tanstack/react-table";
-import type { Item } from "@webstack/shared";
+import {
+  createColumnHelper,
+  tableFeatures,
+  useTable,
+} from "@tanstack/react-table"
+import type { Item } from "@webstack/shared"
 
 import {
   Table,
@@ -8,19 +12,20 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/table"
 
-const features = tableFeatures({});
-const columnHelper = createColumnHelper<typeof features, Item>();
+const features = tableFeatures({})
+const columnHelper = createColumnHelper<typeof features, Item>()
 const columns = columnHelper.columns([
   columnHelper.accessor("name", { header: "Name" }),
   columnHelper.accessor("stock", { header: "Stock" }),
-]);
+])
 
 export function ItemsTable({ items }: { items: Item[] }) {
-  const table = useTable({ features, columns, data: items });
+  const table = useTable({ features, columns, data: items })
 
-  if (items.length === 0) return <p className="text-muted-foreground">No items yet.</p>;
+  if (items.length === 0)
+    return <p className="text-muted-foreground">No items yet.</p>
 
   return (
     <div className="rounded-lg border">
@@ -49,5 +54,5 @@ export function ItemsTable({ items }: { items: Item[] }) {
         </TableBody>
       </Table>
     </div>
-  );
+  )
 }
