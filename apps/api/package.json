@@ -6,8 +6,8 @@
     ".": "./src/app.ts"
   },
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "start": "tsx src/index.ts",
+    "dev": "node --watch src/index.ts",
+    "start": "node src/index.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
@@ -15,8 +15,7 @@
     "@hono/node-server": "catalog:",
     "@hono/standard-validator": "catalog:",
     "@webstack/shared": "workspace:*",
-    "hono": "catalog:",
-    "tsx": "catalog:"
+    "hono": "catalog:"
   },
   "devDependencies": {
     "vitest": "catalog:"

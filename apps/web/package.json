@@ -35,7 +35,6 @@
     "api": "workspace:*",
     "babel-plugin-react-compiler": "catalog:",
     "happy-dom": "catalog:",
-    "shadcn": "catalog:",
     "tailwindcss": "catalog:",
     "tw-animate-css": "catalog:",
     "vite": "catalog:",

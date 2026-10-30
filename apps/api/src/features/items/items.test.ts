@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { findItems } from "./items"
+import { findItems } from "./items.ts"
 
 describe("findItems", () => {
   it("returns every item without a query", () => {

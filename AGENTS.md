@@ -11,7 +11,7 @@ Tools enforce the rules wherever they can. This file only holds what they cannot
 Look in this order and stop at the first match:
 
 1. `apps/web/src/components/ui`
-2. The shadcn registry
+2. The shadcn registry, through `pnpm dlx shadcn@latest add`
 3. `@base-ui/react`
 4. A third-party library. State why, and confirm it is still maintained.
 
