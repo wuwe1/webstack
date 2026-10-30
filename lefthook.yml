@@ -4,3 +4,8 @@ pre-commit:
       glob: "*.{ts,tsx,js,mjs,cjs,json,css,md,yml,yaml,html}"
       run: pnpm oxfmt --no-error-on-unmatched-pattern {staged_files}
       stage_fixed: true
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm commitlint --edit {1}

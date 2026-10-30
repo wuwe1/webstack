@@ -12,6 +12,8 @@ ignoredBuiltDependencies:
   - esbuild
 
 catalog:
+  "@commitlint/cli": ^21.2.4
+  "@commitlint/config-conventional": ^21.2.4
   "@babel/core": ^7.29.0
   "@rolldown/plugin-babel": ^0.3.0
   babel-plugin-react-compiler: ^1.0.0
