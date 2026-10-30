@@ -13,11 +13,10 @@
   },
   "dependencies": {
     "@hono/node-server": "catalog:",
-    "@hono/zod-validator": "catalog:",
+    "@hono/standard-validator": "catalog:",
     "@webstack/shared": "workspace:*",
     "hono": "catalog:",
-    "tsx": "catalog:",
-    "zod": "catalog:"
+    "tsx": "catalog:"
   },
   "devDependencies": {
     "vitest": "catalog:"

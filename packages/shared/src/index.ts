@@ -1,15 +1,15 @@
-import { z } from "zod";
+import * as v from "valibot";
 
-export const itemSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  stock: z.number().int().nonnegative(),
+export const itemSchema = v.object({
+  id: v.string(),
+  name: v.string(),
+  stock: v.pipe(v.number(), v.integer(), v.minValue(0)),
 });
 
-export type Item = z.infer<typeof itemSchema>;
+export type Item = v.InferOutput<typeof itemSchema>;
 
-export const itemListSchema = z.array(itemSchema);
+export const itemListSchema = v.array(itemSchema);
 
-export const itemQuerySchema = z.object({
-  q: z.string().trim().optional(),
+export const itemQuerySchema = v.object({
+  q: v.optional(v.pipe(v.string(), v.trim())),
 });

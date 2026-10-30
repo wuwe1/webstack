@@ -20,7 +20,8 @@
     "cn": "catalog:",
     "hono": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",

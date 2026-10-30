@@ -23,7 +23,7 @@ New dependencies go in the `catalog` in `pnpm-workspace.yaml`.
 - `features/<name>/` holds one feature. Features do not import each other; move shared code down.
 - `components/` and `lib/` know nothing about features.
 - `packages/shared/` holds schemas used by both `web` and `api`.
-- Parse external data with Zod where it enters.
+- Parse external data with Valibot where it enters.
 
 ## TypeScript versions
 

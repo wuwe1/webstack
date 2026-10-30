@@ -12,6 +12,8 @@ ignoredBuiltDependencies:
   - esbuild
 
 catalog:
+  "@hono/standard-validator": ^0.4.1
+  "valibot": ^1.5.0
   "@commitlint/cli": ^21.2.4
   "@commitlint/config-conventional": ^21.2.4
   "@babel/core": ^7.29.0
@@ -20,7 +22,6 @@ catalog:
   "@base-ui/react": ^1.9.0
   "@fontsource-variable/geist": ^5.3.0
   "@hono/node-server": ^2.1.5
-  "@hono/zod-validator": ^0.9.1
   "@playwright/test": ^1.64.1
   "@size-limit/file": ^14.3.0
   "@tailwindcss/vite": ^4.3.3
@@ -52,4 +53,3 @@ catalog:
   "@typescript/native": npm:typescript@~7.0.2
   vite: ^8.3.5
   vitest: ^5.0.5
-  zod: ^4.6.7
