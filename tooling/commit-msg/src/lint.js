@@ -62,7 +62,7 @@ function lintHeader(header) {
   return errors
 }
 
-function lintBody(lines) {
+function lintBody(lines, chineseBody) {
   const errors = []
   if (lines[0]) errors.push("a blank line must follow the title")
 
@@ -72,7 +72,7 @@ function lintBody(lines) {
       errors.push(`body lines must fit ${BODY_MAX_WIDTH} columns: ${line}`)
     }
   }
-  if (body.join("").trim() && !CJK.test(body.join(""))) {
+  if (chineseBody && body.join("").trim() && !CJK.test(body.join(""))) {
     errors.push("the body must be written in Chinese")
   }
   if (lines.some((line) => CO_AUTHOR.test(line))) {
@@ -82,8 +82,8 @@ function lintBody(lines) {
 }
 
 /** Returns what is wrong with a commit message, or nothing if it is fine. */
-export function lintCommitMessage(raw) {
+export function lintCommitMessage(raw, { chineseBody = false } = {}) {
   const [header = "", ...rest] = messageLines(raw)
   if (GENERATED.test(header)) return []
-  return [...lintHeader(header), ...lintBody(rest)]
+  return [...lintHeader(header), ...lintBody(rest, chineseBody)]
 }

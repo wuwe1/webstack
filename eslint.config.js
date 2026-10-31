@@ -3,9 +3,11 @@ import webstack from "@webstack/eslint-config"
 export default webstack(
   {
     ignores: [
+      ".claude/worktrees/**",
       "apps/web/src/components/ui/**",
       "apps/web/src/routeTree.gen.ts",
-      "packages/eslint-config/fixtures/**",
+      "tooling/arch-rules/fixtures/**",
+      "tooling/eslint-config/fixtures/**",
     ],
   },
   {

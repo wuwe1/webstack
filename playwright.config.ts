@@ -4,7 +4,7 @@ import { defineConfig } from "@playwright/test"
 
 export default defineConfig({
   testDir: "e2e",
-  use: { baseURL: "http://localhost:5173" },
+  use: { baseURL: "http://localhost:4173" },
   webServer: [
     {
       command: "pnpm --filter api start",
@@ -12,8 +12,8 @@ export default defineConfig({
       reuseExistingServer: !process.env.CI,
     },
     {
-      command: "pnpm --filter web dev",
-      port: 5173,
+      command: "pnpm --filter web preview --strictPort",
+      port: 4173,
       reuseExistingServer: !process.env.CI,
     },
   ],

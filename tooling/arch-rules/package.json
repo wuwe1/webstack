@@ -1,0 +1,12 @@
+{
+  "name": "@webstack/arch-rules",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "dependency-cruiser": "catalog:",
+    "vitest": "catalog:"
+  }
+}

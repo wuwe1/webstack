@@ -42,10 +42,31 @@ module.exports = {
       from: { path: "^apps/web/" },
       to: { path: "^apps/api/", dependencyTypesNot: ["type-only"] },
     },
+    {
+      name: "api-does-not-import-web",
+      severity: "error",
+      from: { path: "^apps/api/" },
+      to: { path: "^apps/web/" },
+    },
+    {
+      name: "packages-and-tooling-do-not-import-apps",
+      severity: "error",
+      from: { path: "^(packages|tooling)/" },
+      to: { path: "^apps/" },
+    },
+    {
+      name: "apps-and-packages-do-not-import-tooling",
+      comment: "tooling/ only checks the repo. Nothing that ships may use it.",
+      severity: "error",
+      from: { path: "^(apps|packages)/" },
+      to: { path: "^tooling/" },
+    },
   ],
   options: {
     doNotFollow: { path: "node_modules" },
-    exclude: { path: "(node_modules|dist|fixtures|routeTree\\.gen\\.ts)" },
+    exclude: {
+      path: "(node_modules|dist|fixtures|coverage|playwright-report|test-results|routeTree\\.gen\\.ts|^\\.claude/)",
+    },
     tsPreCompilationDeps: true,
     tsConfig: { fileName: "tsconfig.depcruise.json" },
     enhancedResolveOptions: {

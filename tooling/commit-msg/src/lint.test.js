@@ -39,10 +39,26 @@ describe("body", () => {
     expect(lintCommitMessage(withBody("加入登录页面。"))).toEqual([])
   })
 
-  it("rejects an English body", () => {
-    expect(lintCommitMessage(withBody("Add a login page."))).toEqual([
+  it("accepts an English body by default", () => {
+    expect(lintCommitMessage(withBody("Add a login page."))).toEqual([])
+  })
+
+  it("rejects an English body when Chinese is required", () => {
+    const message = withBody("Add a login page.")
+    expect(lintCommitMessage(message, { chineseBody: true })).toEqual([
       "the body must be written in Chinese",
     ])
+  })
+
+  it("accepts a Chinese body when Chinese is required", () => {
+    const message = withBody("加入登录页面。")
+    expect(lintCommitMessage(message, { chineseBody: true })).toEqual([])
+  })
+
+  it("does not require a body when Chinese is required", () => {
+    expect(lintCommitMessage("feat: add login", { chineseBody: true })).toEqual(
+      [],
+    )
   })
 
   it("counts Chinese characters as two columns", () => {

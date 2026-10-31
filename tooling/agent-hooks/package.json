@@ -1,0 +1,11 @@
+{
+  "name": "@webstack/agent-hooks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "catalog:"
+  }
+}

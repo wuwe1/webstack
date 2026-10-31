@@ -8,6 +8,7 @@
     "apps/web/src/routeTree.gen.ts",
     "pnpm-lock.yaml",
     "apps/web/src/shadcn.css",
-    "packages/eslint-config/fixtures/**"
+    "tooling/arch-rules/fixtures/**",
+    "tooling/eslint-config/fixtures/**"
   ]
 }

@@ -1,4 +1,14 @@
-import type { Item } from "@webstack/shared"
+import * as v from "valibot"
+
+export const itemQuerySchema = v.object({
+  q: v.optional(v.pipe(v.string(), v.trim())),
+})
+
+interface Item {
+  id: string
+  name: string
+  stock: number
+}
 
 const ITEMS: Item[] = [
   { id: "1", name: "Keyboard", stock: 12 },

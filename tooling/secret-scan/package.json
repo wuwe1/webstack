@@ -1,0 +1,11 @@
+{
+  "name": "@webstack/secret-scan",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "catalog:"
+  }
+}

@@ -1,0 +1,25 @@
+title = "webstack"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "db-url-with-password"
+description = "Database URL with an inline password"
+regex = '''(?i)\b(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|rediss?|amqps?)://[^\s:@/'"`]*:([^\s:@/'"`]+)@[^\s'"`]+'''
+secretGroup = 1
+keywords = ["postgres", "mysql", "mariadb", "mongodb", "redis", "amqp"]
+
+[[rules.allowlists]]
+regexTarget = "secret"
+regexes = [
+  '''^(?:\$\{?\w+\}?|<[^>]+>|password|pass|secret|changeme|postgres)$''',
+]
+
+[[rules]]
+id = "dotenv-file"
+description = "A .env file is being committed; keep it out of git"
+path = '''(?:^|/)\.env(?:\.[^/]+)?$'''
+
+[[rules.allowlists]]
+paths = ['''\.env\.example$''']

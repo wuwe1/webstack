@@ -1,8 +1,7 @@
 import { sValidator } from "@hono/standard-validator"
-import { itemQuerySchema } from "@webstack/shared"
 import { Hono } from "hono"
 
-import { findItems } from "../features/items/items.ts"
+import { findItems, itemQuerySchema } from "../features/items/items.ts"
 
 export const itemsRoute = new Hono().get(
   "/",

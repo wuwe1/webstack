@@ -3,7 +3,6 @@ import {
   tableFeatures,
   useTable,
 } from "@tanstack/react-table"
-import type { Item } from "@webstack/shared"
 
 import {
   Table,
@@ -13,6 +12,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+
+import type { Item } from "./api"
 
 const features = tableFeatures({})
 const columnHelper = createColumnHelper<typeof features, Item>()

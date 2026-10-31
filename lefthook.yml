@@ -4,8 +4,15 @@ pre-commit:
       glob: "*.{ts,tsx,js,mjs,cjs,json,css,md,yml,yaml,html}"
       run: pnpm oxfmt --no-error-on-unmatched-pattern {staged_files}
       stage_fixed: true
+    secrets:
+      run: node tooling/secret-scan/src/cli.js git --pre-commit --staged --redact --no-banner --verbose --ignore-gitleaks-allow .
+
+pre-push:
+  commands:
+    check:
+      run: pnpm check
 
 commit-msg:
   commands:
     lint:
-      run: node packages/commit-msg/src/cli.js {1}
+      run: node tooling/commit-msg/src/cli.js {1}

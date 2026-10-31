@@ -3,6 +3,9 @@ import { createRouter, RouterProvider } from "@tanstack/react-router"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 
+import { ErrorPage } from "./components/error-page"
+import { NotFoundPage } from "./components/not-found-page"
+
 import "./index.css"
 import { routeTree } from "./routeTree.gen"
 
@@ -14,6 +17,8 @@ const router = createRouter({
   context: { queryClient },
   defaultPreload: "intent",
   defaultPreloadStaleTime: 0,
+  defaultErrorComponent: ErrorPage,
+  defaultNotFoundComponent: NotFoundPage,
 })
 
 declare module "@tanstack/react-router" {
