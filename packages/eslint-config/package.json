@@ -5,11 +5,36 @@
   "exports": {
     ".": "./src/index.js"
   },
+  "scripts": {
+    "test": "vitest run"
+  },
   "dependencies": {
-    "@antfu/eslint-config": "catalog:",
+    "@e18e/eslint-plugin": "catalog:",
+    "@eslint-community/eslint-plugin-eslint-comments": "catalog:",
     "@eslint-react/eslint-plugin": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "@vitest/eslint-plugin": "catalog:",
+    "eslint-plugin-antfu": "catalog:",
+    "eslint-plugin-import-lite": "catalog:",
+    "eslint-plugin-n": "catalog:",
+    "eslint-plugin-no-only-tests": "catalog:",
+    "eslint-plugin-perfectionist": "catalog:",
+    "eslint-plugin-pnpm": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
-    "typescript": "catalog:"
+    "eslint-plugin-regexp": "catalog:",
+    "eslint-plugin-unicorn": "catalog:",
+    "eslint-plugin-unused-imports": "catalog:",
+    "globals": "catalog:",
+    "jsonc-eslint-parser": "catalog:",
+    "typescript": "catalog:",
+    "yaml-eslint-parser": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "eslint": "catalog:",
+    "react": "catalog:",
+    "vitest": "catalog:"
   },
   "peerDependencies": {
     "eslint": "catalog:"

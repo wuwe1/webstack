@@ -9,6 +9,12 @@
     },
     "apps/api": {},
     "packages/shared": {},
-    "packages/eslint-config": {}
+    "packages/eslint-config": {
+      "ignore": ["fixtures/**"],
+      "ignoreDependencies": ["@types/react", "react", "typescript"]
+    },
+    "packages/commit-msg": {
+      "entry": ["src/cli.js"]
+    }
   }
 }

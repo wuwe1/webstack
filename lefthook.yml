@@ -7,5 +7,5 @@ pre-commit:
 
 commit-msg:
   commands:
-    commitlint:
-      run: pnpm commitlint --edit {1}
+    lint:
+      run: node packages/commit-msg/src/cli.js {1}

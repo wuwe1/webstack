@@ -45,7 +45,7 @@ module.exports = {
   ],
   options: {
     doNotFollow: { path: "node_modules" },
-    exclude: { path: "(node_modules|dist|routeTree\\.gen\\.ts)" },
+    exclude: { path: "(node_modules|dist|fixtures|routeTree\\.gen\\.ts)" },
     tsPreCompilationDeps: true,
     tsConfig: { fileName: "tsconfig.depcruise.json" },
     enhancedResolveOptions: {

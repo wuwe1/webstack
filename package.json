@@ -18,8 +18,6 @@
     "prepare": "lefthook install"
   },
   "devDependencies": {
-    "@commitlint/cli": "catalog:",
-    "@commitlint/config-conventional": "catalog:",
     "@playwright/test": "catalog:",
     "@size-limit/file": "catalog:",
     "@types/node": "catalog:",
