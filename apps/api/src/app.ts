@@ -9,3 +9,4 @@ export const app = new Hono()
   .notFound(handleNotFound)
 
 export type AppType = typeof app
+export type { ApiErrorBody } from "./lib/errors.ts"

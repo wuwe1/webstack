@@ -45,3 +45,27 @@ console.log("disabled without a reason")
 
 // eslint-disable-next-line no-console -- a reason keeps the exception reviewable
 console.log("disabled with a reason")
+
+export function throwsAString(reason: string) {
+  throw reason // expect: ts/only-throw-error
+}
+export const catchIsAny = (work: Promise<number>) =>
+  work.catch((error) => String(error)) // expect: ts/use-unknown-in-catch-callback-variable
+export async function returnsFromTry(work: () => Promise<number>) {
+  try {
+    return work() // expect: ts/return-await
+  } catch {
+    return 0
+  }
+}
+export function losesTheCause() {
+  try {
+    JSON.parse("x")
+  } catch (error) {
+    console.error(error)
+    throw new Error("bad json") // expect: preserve-caught-error
+  }
+}
+declare const c: { json: (body: unknown, status?: number) => Response }
+export const noStatus = () => c.json({ ok: true }) // expect: no-restricted-syntax
+export const withStatus = () => c.json({ ok: true }, 200)

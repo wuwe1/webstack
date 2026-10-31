@@ -148,6 +148,7 @@ export const sharedRules = {
   "prefer-rest-params": "error",
   "prefer-spread": "error",
   "prefer-template": "error",
+  "preserve-caught-error": "error",
   "symbol-description": "error",
   "unicode-bom": "error",
   "unicorn/consistent-empty-array-spread": "error",
@@ -250,6 +251,15 @@ export const javascriptRules = {
 
 // Type-aware rules need `parserOptions.projectService`.
 export const typescriptRules = {
+  "no-restricted-syntax": [
+    "error",
+    {
+      selector:
+        "CallExpression[callee.object.name='c'][callee.property.name='json'][arguments.length=1]",
+      message: "Pass the status to c.json so hc can narrow on response.status.",
+    },
+  ],
+  "no-throw-literal": "off",
   "eslint-comments/require-description": "error",
   "ts/ban-ts-comment": [
     "error",
@@ -294,9 +304,12 @@ export const typescriptRules = {
     { classes: false, functions: false, variables: true },
   ],
   "ts/no-wrapper-object-types": "error",
+  "ts/only-throw-error": "error",
   "ts/prefer-as-const": "error",
   "ts/prefer-namespace-keyword": "error",
+  "ts/return-await": ["error", "error-handling-correctness-only"],
   "ts/switch-exhaustiveness-check": "error",
+  "ts/use-unknown-in-catch-callback-variable": "error",
 }
 
 // Function components on React 19, without server components.

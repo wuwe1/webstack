@@ -23,6 +23,7 @@ New dependencies go in the `catalog` in `pnpm-workspace.yaml`.
 - `features/<name>/` holds one feature. Features do not import each other; move shared code down.
 - `components/` and `lib/` know nothing about features.
 - Types reach `web` from `api` through `hc`. Add a `packages/contracts/` only when both run the same schema, such as a form, and let it depend on nothing but Valibot.
+- API errors share one shape. Return expected failures with `c.json(apiError({ code, message }), status)` so `hc` types them, and throw for bugs. On `web`, `send` turns a failed response into an `ApiError`.
 - `tooling/` holds repo checks and shared config, never code that ships. `apps` and `packages` must not import it.
 - Parse external data with Valibot where it enters.
 

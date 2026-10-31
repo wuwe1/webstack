@@ -5,12 +5,19 @@ import { createRoot } from "react-dom/client"
 
 import { ErrorPage } from "./components/error-page"
 import { NotFoundPage } from "./components/not-found-page"
+import { ApiError } from "./lib/api-client"
 
 import "./index.css"
 import { routeTree } from "./routeTree.gen"
 
 const queryClient = new QueryClient({
-  defaultOptions: { queries: { staleTime: 30_000 } },
+  defaultOptions: {
+    queries: {
+      staleTime: 30_000,
+      retry: (failures, error) =>
+        failures < 3 && !(error instanceof ApiError && error.status < 500),
+    },
+  },
 })
 const router = createRouter({
   routeTree,

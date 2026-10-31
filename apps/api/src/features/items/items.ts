@@ -21,3 +21,7 @@ export function findItems(q?: string): Item[] {
   const needle = q.toLowerCase()
   return ITEMS.filter((item) => item.name.toLowerCase().includes(needle))
 }
+
+export function findItem(id: string): Item | undefined {
+  return ITEMS.find((item) => item.id === id)
+}

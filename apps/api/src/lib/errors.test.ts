@@ -11,6 +11,11 @@ const app = new Hono()
   .get("/teapot", () => {
     throw new HTTPException(418, { message: "short and stout" })
   })
+  .get("/locked", () => {
+    throw new HTTPException(401, {
+      res: new Response(null, { headers: { "WWW-Authenticate": "Bearer" } }),
+    })
+  })
   .onError(handleError)
   .notFound(handleNotFound)
 
@@ -25,7 +30,9 @@ describe("error handlers", () => {
     const response = await app.request("/crash")
 
     expect(response.status).toBe(500)
-    expect(await response.json()).toEqual({ error: "Internal server error" })
+    expect(await response.json()).toEqual({
+      error: { code: "internal_error", message: "Internal server error" },
+    })
     expect(log).toHaveBeenCalledOnce()
   })
 
@@ -33,13 +40,27 @@ describe("error handlers", () => {
     const response = await app.request("/teapot")
 
     expect(response.status).toBe(418)
-    expect(await response.text()).toBe("short and stout")
+    expect(await response.json()).toEqual({
+      error: { code: "http_418", message: "short and stout" },
+    })
+  })
+
+  it("keeps the headers of an intended error", async () => {
+    const response = await app.request("/locked")
+
+    expect(response.status).toBe(401)
+    expect(response.headers.get("WWW-Authenticate")).toBe("Bearer")
+    expect(await response.json()).toEqual({
+      error: { code: "http_401", message: "Request failed" },
+    })
   })
 
   it("answers unknown paths with JSON", async () => {
     const response = await app.request("/missing")
 
     expect(response.status).toBe(404)
-    expect(await response.json()).toEqual({ error: "Not found" })
+    expect(await response.json()).toEqual({
+      error: { code: "not_found", message: "Not found" },
+    })
   })
 })

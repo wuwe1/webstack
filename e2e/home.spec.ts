@@ -21,7 +21,25 @@ test("answers unknown API paths with JSON", async ({ request }) => {
   const response = await request.get("/api/missing")
 
   expect(response.status()).toBe(404)
-  expect(await response.json()).toEqual({ error: "Not found" })
+  expect(await response.json()).toEqual({
+    error: { code: "not_found", message: "Not found" },
+  })
+})
+
+test("shows an API error without retrying it", async ({ page }) => {
+  let requests = 0
+  await page.route("**/api/items*", (route) => {
+    requests += 1
+    return route.fulfill({
+      status: 400,
+      json: { error: { code: "invalid_request", message: "Invalid request" } },
+    })
+  })
+
+  await page.goto("/")
+
+  await expect(page.getByRole("alert")).toContainText("Invalid request")
+  expect(requests).toBe(1)
 })
 
 test("fits a phone-width screen", async ({ page }) => {
