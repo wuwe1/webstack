@@ -13,13 +13,11 @@
     },
     "tooling/eslint-config": {
       "ignore": ["fixtures/**"],
-      "ignoreDependencies": ["@types/react", "react", "typescript"]
+      "ignoreDependencies": ["@types/react", "react"]
     },
     "tooling/agent-hooks": {
       "entry": ["src/check-on-stop.js", "src/guard-bash-cli.js"]
     },
-    "tooling/commit-msg": {
-      "entry": ["src/cli.js"]
-    }
+    "tooling/commit-msg": {}
   }
 }

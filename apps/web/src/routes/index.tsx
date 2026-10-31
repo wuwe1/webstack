@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { createFileRoute } from "@tanstack/react-router"
+import { CircleAlertIcon } from "lucide-react"
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -17,6 +18,7 @@ function HomePage() {
       {isPending && <Skeleton className="h-40 w-full" />}
       {error && (
         <Alert variant="destructive">
+          <CircleAlertIcon />
           <AlertTitle>Could not load items</AlertTitle>
           <AlertDescription>{error.message}</AlertDescription>
         </Alert>

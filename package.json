@@ -16,7 +16,7 @@
     "e2e": "pnpm build && playwright test",
     "size": "size-limit",
     "check": "pnpm secrets && pnpm typecheck && pnpm fmt:check && pnpm lint && pnpm arch && pnpm knip && pnpm test && pnpm e2e && pnpm size",
-    "prepare": "lefthook install"
+    "prepare": "git rev-parse --git-dir >/dev/null 2>/dev/null || exit 0; lefthook install"
   },
   "devDependencies": {
     "@playwright/test": "catalog:",
